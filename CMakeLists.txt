@@ -22,9 +22,18 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Enable verbose warnings and debug symbols for educational clarity.
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -O0")
 
-add_executable(cheatengine
+set(CHEATENGINE_SOURCES
     src/main.cpp
+    src/core/errors.cpp
+    src/memory/value_types.cpp
+    src/memory/memory_region.cpp
+    src/memory/memory_scanner.cpp
+    src/process/process_manager.cpp
+    src/monitor/value_monitor.cpp
+    src/writer/memory_writer.cpp
 )
+
+add_executable(cheatengine ${CHEATENGINE_SOURCES})
 
 target_include_directories(cheatengine
     PUBLIC
